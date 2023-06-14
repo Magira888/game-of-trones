@@ -9,10 +9,26 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { hanleSingup } from "../../auth/auth-action";
-import { HandymanOutlined } from "@mui/icons-material";
+import { handleSignup, hanleSingup } from "../../auth/auth-action";
+import { HandymanOutlined, Opacity } from "@mui/icons-material";
+import { setEmail, setPassword } from "../../auth/auth-slice";
 
 const Register = () => {
+  const { email, password, emailError, passwordError } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleUser = () => {
+    const obj = {
+      email,
+      password,
+      navigate,
+    };
+    dispatch(handleSignup(obj));
+  };
+
   return (
     <Box width={"100%"}>
       <Box
@@ -32,7 +48,7 @@ const Register = () => {
           sx={{
             width: "25%",
             height: "400px",
-            backgroundColor: "black",
+            backgroundColor: "rgb(0,0,0,0.7)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -40,7 +56,6 @@ const Register = () => {
             height: "600px",
             gap: "20px",
             color: "white",
-            opacity: "0.7",
             borderRadius: "40px",
           }}
         >
@@ -48,20 +63,24 @@ const Register = () => {
             Register
           </Typography>
           <TextField
-            label="UserName"
-            sx={{ color: "white", backgroundColor: "white" }}
-          />
-          <TextField
             label="Password"
             sx={{ color: "white", backgroundColor: "white" }}
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => dispatch(setPassword(e.target.value))}
           />
           <TextField
             label="Email"
             sx={{ color: "white", backgroundColor: "white" }}
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={(e) => dispatch(setEmail(e.target.value))}
           />
           <Button
             variant="contained"
-            onClick={HandymanOutlined}
+            onClick={handleUser}
             sx={{
               backgroundColor: "#520509",
               width: "40%",
