@@ -6,7 +6,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { hanleSingup } from "../../auth/auth-action";
+import { HandymanOutlined } from "@mui/icons-material";
 
 const Register = () => {
   return (
@@ -57,6 +61,7 @@ const Register = () => {
           />
           <Button
             variant="contained"
+            onClick={HandymanOutlined}
             sx={{
               backgroundColor: "#520509",
               width: "40%",
