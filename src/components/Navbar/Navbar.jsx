@@ -18,6 +18,7 @@ const pages = [
   { path: "/", title: "Home" },
   { path: "/characters", title: "Characters" },
   { path: "/shop", title: "shop" },
+  { path: "/admin", title: "admin" },
 ];
 
 const settings = [
