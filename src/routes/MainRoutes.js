@@ -7,6 +7,7 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import AccountPage from "../pages/AccountPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import AdminPage from "../pages/AdminPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -16,6 +17,8 @@ const MainRoutes = () => {
     { link: "/register", element: <RegisterPage /> },
     { link: "/login", element: <LoginPage /> },
     { link: "/account", element: <AccountPage /> },
+    { link: "/admin", element: <AdminPage /> },
+
     { link: "/*", element: <NotFoundPage /> },
   ];
   return (
