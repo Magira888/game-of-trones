@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { create, deleter, editer, oneProduct, read } from "./crudAction";
+import { create, deleter, editer, getOneProduct, read } from "./crudAction";
 
 const initialState = {
   products: [],
@@ -21,12 +21,12 @@ export const crudSlice = createSlice({
       .addCase(deleter.fulfilled, (state, action) => {
         state.products = state.products.filter((e) => e.id !== action.payload);
       })
-      .addCase(oneProduct.fulfilled, (state, action) => {
+      .addCase(getOneProduct.fulfilled, (state, action) => {
         state.oneProduct = action.payload;
       })
       .addCase(editer.fulfilled, (state, action) => {
         state.products.map((elem) => {
-          elem.id === action.payload.id
+          return elem.id === action.payload.id
             ? (state.products = action.payload)
             : state.products;
         });
@@ -35,4 +35,4 @@ export const crudSlice = createSlice({
 });
 
 export const crudReducer = crudSlice.reducer;
-export const crudAction = crudSlice.actions;
+// export const crudAction = crudSlice.actions;
