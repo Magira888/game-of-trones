@@ -31,7 +31,7 @@ const Characters = () => {
         <Card
           sx={{
             maxWidth: 345,
-            border: "solid black 2px",
+            border: "solid black 5px",
             borderRadius: "10px",
             overflow: "hidden",
             backgroundColor: "rgb(0,0,0,0)",
