@@ -32,7 +32,7 @@ const Characters = () => {
           sx={{
             maxWidth: 345,
             border: "solid black 5px",
-            borderRadius: "10px",
+            borderRadius: "20px",
             overflow: "hidden",
             backgroundColor: "rgb(0,0,0,0)",
           }}
