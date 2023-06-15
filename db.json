@@ -1,4 +1,26 @@
 {
-  "shop": [],
+  "shop": [
+    {
+      "title": "asd",
+      "price": "asd",
+      "image": "https://static.rustore.ru/apk/256380351/content/ICON/d4db7e5a-8a8d-46ad-9509-1cefcf2e40ab.jpg",
+      "type": "asd",
+      "id": 1
+    },
+    {
+      "title": "qwer",
+      "price": "qwer",
+      "image": "qwer",
+      "type": "qwer",
+      "id": 2
+    },
+    {
+      "title": "",
+      "price": "",
+      "image": "",
+      "type": "",
+      "id": 4
+    }
+  ],
   "comments": []
 }
