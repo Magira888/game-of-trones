@@ -66,7 +66,6 @@ const Register = () => {
             label="Password"
             sx={{ color: "white", backgroundColor: "white" }}
             type="password"
-            placeholder="password"
             value={password}
             onChange={(e) => dispatch(setPassword(e.target.value))}
           />
@@ -74,7 +73,6 @@ const Register = () => {
             label="Email"
             sx={{ color: "white", backgroundColor: "white" }}
             type="text"
-            placeholder="email"
             value={email}
             onChange={(e) => dispatch(setEmail(e.target.value))}
           />

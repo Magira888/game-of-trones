@@ -8,6 +8,7 @@ import LoginPage from "../pages/LoginPage";
 import AccountPage from "../pages/AccountPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import AdminPage from "../pages/AdminPage";
+import Edit from "../components/Edit/Edit";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -18,6 +19,7 @@ const MainRoutes = () => {
     { link: "/login", element: <LoginPage /> },
     { link: "/account", element: <AccountPage /> },
     { link: "/admin", element: <AdminPage /> },
+    { link: "/edit/:id", element: <Edit /> },
 
     { link: "/*", element: <NotFoundPage /> },
   ];
