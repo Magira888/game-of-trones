@@ -38,15 +38,17 @@ const Shop = () => {
               <Typography variant="body2" color="text.secondary">
                 {elem.price}
               </Typography>
+              <Box>
+                <Button
+                  onClick={() => {
+                    navigate(`/edit/${elem.id}`);
+                  }}
+                >
+                  ✏️
+                </Button>
+                <Button onClick={() => dispatch(deleter(elem.id))}>🗑️</Button>
+              </Box>
             </CardContent>
-            <Button
-              onClick={() => {
-                navigate(`/edit/${elem.id}`);
-              }}
-            >
-              ✏️
-            </Button>
-            <Button onClick={() => dispatch(deleter(elem.id))}>🗑️</Button>
           </CardActionArea>
         </Card>
       ))}
