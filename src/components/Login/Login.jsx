@@ -43,7 +43,7 @@ const Login = () => {
             sx={{
               width: "25%",
               height: "400px",
-              backgroundColor: "rgba-(0,0,0,0.7)",
+              backgroundColor: "rgb(0,0,0,0.5)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
