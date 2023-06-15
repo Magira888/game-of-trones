@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { handleSignup, hanleSingup } from "../../auth/auth-action";
+import { handleSignup } from "../../auth/auth-action";
 import { HandymanOutlined, Opacity } from "@mui/icons-material";
 import { setEmail, setPassword } from "../../auth/auth-slice";
 
