@@ -24,7 +24,7 @@ export const deleter = createAsyncThunk(
   }
 );
 
-export const oneProduct = createAsyncThunk(
+export const getOneProduct = createAsyncThunk(
   "@products/oneProduct",
   async (id) => {
     let { data } = await axios(`${API}/${id}`);
