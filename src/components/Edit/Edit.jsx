@@ -1,10 +1,10 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { create } from "../../crud/crudAction";
-import { useNavigate } from "react-router-dom";
+import { editer, oneProduct } from "../../crud/crudAction";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Admin = () => {
+const Edit = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
@@ -12,15 +12,21 @@ const Admin = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(oneProduct(id));
+  }, []);
 
   function handleInput() {
-    let obj = {
+    let editedObj = {
       title,
       price,
       image,
       type,
+      id,
     };
-    dispatch(create(obj));
+    dispatch(editer(editedObj));
   }
 
   return (
@@ -35,7 +41,7 @@ const Admin = () => {
         }}
       >
         <Typography variant="h3" sx={{ mb: "50px", fontWeight: "600" }}>
-          Add your product
+          Add your changes
         </Typography>
         <TextField label="title" onChange={(e) => setTitle(e.target.value)} />
         <TextField label="price" onChange={(e) => setPrice(e.target.value)} />
@@ -45,14 +51,13 @@ const Admin = () => {
           variant="contained"
           onClick={() => {
             handleInput();
-            navigate("/shop");
           }}
         >
-          ADD
+          Save
         </Button>
       </Box>
     </>
   );
 };
 
-export default Admin;
+export default Edit;
