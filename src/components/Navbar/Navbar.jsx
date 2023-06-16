@@ -11,14 +11,14 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import photo from "./pngegg.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearInputs } from "../../auth/auth-slice";
+import { ADMIN } from "../../helpers/consts";
 
 const pages = [
   { path: "/", title: "Home" },
   { path: "/characters", title: "Characters" },
   { path: "/shop", title: "shop" },
-  { path: "/admin", title: "admin" },
 ];
 
 const settings = [
@@ -30,7 +30,8 @@ function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [setAnchorElUser] = React.useState(null);
+  const { user } = useSelector((state) => state.auth);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -123,6 +124,11 @@ function Navbar() {
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page.title}
+                  {user === ADMIN && (
+                    <Typography onClick={() => navigate("/admin")}>
+                      Admin
+                    </Typography>
+                  )}
                 </Button>
               ))}
             </Box>
