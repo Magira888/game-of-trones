@@ -1,0 +1,7 @@
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+.card:hover {
+  border-color: #008bf8;
+}

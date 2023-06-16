@@ -1,13 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { create, deleter, editer, getOneProduct, read } from "./crudAction";
+import {
+  create,
+  deleter,
+  editer,
+  getDatas,
+  getOneProduct,
+  read,
+} from "./crudAction";
 
 const initialState = {
   products: [],
   oneProduct: null,
+  characters: [],
 };
 
 export const crudSlice = createSlice({
-  name: "@products",
+  name: "@characters",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -30,6 +38,9 @@ export const crudSlice = createSlice({
             ? (state.products = action.payload)
             : state.products;
         });
+      })
+      .addCase(getDatas.fulfilled, (state, action) => {
+        state.characters = action.payload;
       });
   },
 });

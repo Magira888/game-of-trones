@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API } from "../helpers/consts";
+import { API, CHAR } from "../helpers/consts";
+import { setCharacters } from "./crudSlice";
 
 export const read = createAsyncThunk("@products/read", async () => {
   let { data } = await axios(API);
@@ -40,3 +41,8 @@ export const editer = createAsyncThunk(
     return editedObj;
   }
 );
+
+export const getDatas = createAsyncThunk("@characters/getDatas", async () => {
+  let { data } = await axios(CHAR);
+  return data;
+});

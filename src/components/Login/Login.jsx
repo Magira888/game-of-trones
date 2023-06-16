@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,10 +10,16 @@ const Login = () => {
     (state) => state.auth
   );
 
+  const [showError, setShowError] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleUser = () => {
+    if (!email.trim() || !password.trim()) {
+      setShowError(true);
+      return;
+    }
     const obj = {
       email,
       password,
@@ -58,14 +64,6 @@ const Login = () => {
               Login
             </Typography>
             <TextField
-              label="Password"
-              sx={{ color: "white", backgroundColor: "white" }}
-              type="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => dispatch(setPassword(e.target.value))}
-            />
-            <TextField
               label="Email"
               sx={{ color: "white", backgroundColor: "white" }}
               type="text"
@@ -73,6 +71,41 @@ const Login = () => {
               value={email}
               onChange={(e) => dispatch(setEmail(e.target.value))}
             />
+            {emailError && (
+              <Typography
+                sx={{
+                  width: "80%",
+                  color: "red",
+                  marginBottom: "10px",
+                }}
+              >
+                {emailError}
+              </Typography>
+            )}
+            <TextField
+              label="Password"
+              sx={{ color: "white", backgroundColor: "white" }}
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => dispatch(setPassword(e.target.value))}
+            />
+            {passwordError && (
+              <Typography
+                sx={{
+                  width: "80%",
+                  color: "red",
+                  marginBottom: "10px",
+                }}
+              >
+                {passwordError}
+              </Typography>
+            )}
+            {showError && (
+              <Typography variant="h6" sx={{ color: "red" }}>
+                Заполните все поля
+              </Typography>
+            )}
             <Button
               onClick={handleUser}
               variant="contained"
