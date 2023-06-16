@@ -9,11 +9,16 @@ const Admin = () => {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [type, setType] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function handleInput() {
+    if (!title.trim() || !price.trim() || !image.trim() || !type.trim()) {
+      setShowError(true);
+      return;
+    }
     let obj = {
       title,
       price,
@@ -21,6 +26,7 @@ const Admin = () => {
       type,
     };
     dispatch(create(obj));
+    navigate("/shop");
   }
 
   return (
@@ -45,11 +51,17 @@ const Admin = () => {
           variant="contained"
           onClick={() => {
             handleInput();
-            navigate("/shop");
           }}
         >
           ADD
         </Button>
+        {showError ? (
+          <Typography variant="h6" sx={{ color: "red" }}>
+            Заполните все поля
+          </Typography>
+        ) : (
+          <></>
+        )}
       </Box>
     </>
   );

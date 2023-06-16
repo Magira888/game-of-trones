@@ -17,10 +17,16 @@ const Register = () => {
   const { email, password, emailError, passwordError } = useSelector(
     (state) => state.auth
   );
+  const [showError, setShowError] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleUser = () => {
+    if (!email.trim() || !password.trim()) {
+      setShowError(true);
+      return;
+    }
     const obj = {
       email,
       password,
@@ -63,19 +69,48 @@ const Register = () => {
             Register
           </Typography>
           <TextField
-            label="Password"
-            sx={{ color: "white", backgroundColor: "white" }}
-            type="password"
-            value={password}
-            onChange={(e) => dispatch(setPassword(e.target.value))}
-          />
-          <TextField
             label="Email"
             sx={{ color: "white", backgroundColor: "white" }}
             type="text"
             value={email}
             onChange={(e) => dispatch(setEmail(e.target.value))}
           />
+          {emailError && (
+            <Typography
+              sx={{
+                width: "80%",
+                color: "red",
+                marginBottom: "10px",
+              }}
+            >
+              {emailError}
+            </Typography>
+          )}
+          <TextField
+            label="Password"
+            sx={{ color: "white", backgroundColor: "white" }}
+            type="password"
+            value={password}
+            onChange={(e) => dispatch(setPassword(e.target.value))}
+          />
+          {passwordError && (
+            <Typography
+              sx={{
+                width: "80%",
+                color: "red",
+                marginBottom: "10px",
+              }}
+            >
+              {passwordError}
+            </Typography>
+          )}
+          {showError ? (
+            <Typography variant="h6" sx={{ color: "red" }}>
+              Заполните все поля
+            </Typography>
+          ) : (
+            <></>
+          )}
           <Button
             variant="contained"
             onClick={handleUser}
