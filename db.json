@@ -8,11 +8,11 @@
       "id": 1
     },
     {
-      "title": "",
-      "price": "",
-      "image": "",
-      "type": "",
-      "id": 4
+      "title": "qwer1234",
+      "price": "qwer",
+      "image": "qwer",
+      "type": "qwerdd",
+      "id": 2
     },
     {
       "title": "олдоол",
@@ -20,6 +20,20 @@
       "image": "длодлодлод",
       "type": "лдлодлодл",
       "id": 5
+    },
+    {
+      "title": "Mira",
+      "price": "123456789",
+      "image": "https://fikiwiki.com/uploads/posts/2022-02/1644984017_1-fikiwiki-com-p-kartinki-zhivotnikh-na-avu-1.jpg",
+      "type": "key",
+      "id": 8
+    },
+    {
+      "title": "zhanyl",
+      "price": "12378562",
+      "image": "hgjh",
+      "type": "key",
+      "id": 9
     }
   ],
   "comments": []

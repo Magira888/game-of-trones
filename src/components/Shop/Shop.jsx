@@ -24,6 +24,42 @@ const Shop = () => {
 
   return (
     <>
+      {products.map((elem, index) => (
+        <Card
+          sx={{
+            maxWidth: 345,
+          }}
+          key={index}
+        >
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="140"
+              image={elem.image}
+              alt="green iguana"
+            />
+
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {elem.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {elem.price}
+              </Typography>
+              <Box>
+                <Button
+                  onClick={() => {
+                    navigate(`/edit/${elem.id}`);
+                  }}
+                >
+                  ✏️
+                </Button>
+                <Button onClick={() => dispatch(deleter(elem.id))}>🗑️</Button>
+              </Box>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      ))}
       <Box sx={{ width: "100%" }}>
         <Box>
           <Cart />

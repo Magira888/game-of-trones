@@ -34,7 +34,7 @@ const Login = () => {
             minHeight: "100vh",
             width: "100%",
             backgroundImage:
-              "url(https://c4.wallpaperflare.com/wallpaper/492/536/946/game-of-thrones-tv-jon-snow-blue-eyes-wallpaper-preview.jpg)",
+              "url(https://images3.alphacoders.com/837/837671.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
