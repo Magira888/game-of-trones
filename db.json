@@ -1,47 +1,25 @@
 {
   "shop": [
     {
-      "title": "magira",
+      "title": "asd",
       "price": "asd",
       "image": "https://static.rustore.ru/apk/256380351/content/ICON/d4db7e5a-8a8d-46ad-9509-1cefcf2e40ab.jpg",
       "type": "asd",
       "id": 1
     },
     {
-<<<<<<< HEAD
       "title": "",
       "price": "",
       "image": "",
       "type": "",
       "id": 4
-=======
-      "title": "qwer1234",
-      "price": "qwer",
-      "image": "qwer",
-      "type": "qwerdd",
-      "id": 2
     },
     {
-      "title": "qwer",
-      "price": "qwer",
-      "image": "qwer",
-      "type": "qwer",
-      "id": 3
-    },
-    {
-      "title": "magira",
-      "price": "kn,",
-      "image": "kj",
-      "type": "kj",
+      "title": "олдоол",
+      "price": "лдодлолдолдо",
+      "image": "длодлодлод",
+      "type": "лдлодлодл",
       "id": 5
-    },
-    {
-      "title": "meerim",
-      "price": "561re",
-      "image": "httth",
-      "type": "hrthr",
-      "id": 6
->>>>>>> 2977ff4d2651e617ddc9bcc8bce3a71ce3d9cd1f
     }
   ],
   "comments": []
