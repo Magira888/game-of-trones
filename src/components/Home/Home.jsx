@@ -14,9 +14,11 @@ const Home = () => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
+        backgroundImage: "url(https://images5.alphacoders.com/314/314903.jpg)",
+        height: "120vh",
       }}
     >
-      <img src={photo} alt="error" />
+      <img src={photo} alt="error" style={{ marginBottom: "200px" }} />
     </Box>
   );
 };

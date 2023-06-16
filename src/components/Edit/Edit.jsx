@@ -19,6 +19,7 @@ const Edit = () => {
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, []);
+
   useEffect(() => {
     if (oneProduct) {
       setTitle(oneProduct.title);
@@ -28,7 +29,6 @@ const Edit = () => {
     }
   }, [oneProduct]);
 
-  console.log(products);
   function handleInput() {
     let editedObj = {
       title,

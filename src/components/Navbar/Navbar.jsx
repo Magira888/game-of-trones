@@ -57,7 +57,12 @@ function Navbar() {
       <AppBar position="static" sx={{ backgroundColor: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={photo} alt="" style={{ width: "15%" }} />
+            <img
+              src={photo}
+              alt=""
+              style={{ width: "15%" }}
+              onClick={() => navigate("/")}
+            />
             <Typography
               variant="h6"
               noWrap

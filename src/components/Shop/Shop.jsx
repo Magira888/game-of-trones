@@ -23,7 +23,12 @@ const Shop = () => {
   return (
     <>
       {products.map((elem, index) => (
-        <Card sx={{ maxWidth: 345 }} key={index}>
+        <Card
+          sx={{
+            maxWidth: 345,
+          }}
+          key={index}
+        >
           <CardActionArea>
             <CardMedia
               component="img"
@@ -31,6 +36,7 @@ const Shop = () => {
               image={elem.image}
               alt="green iguana"
             />
+
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {elem.title}

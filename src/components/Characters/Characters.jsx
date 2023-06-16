@@ -10,54 +10,247 @@ const Characters = () => {
     <>
       <Box
         sx={{
-          width: "100%",
-          minHeight: "100vh",
           backgroundImage:
-            "url(https://fs.kinomania.ru/image/file/film_wallpaper/f/0a/f0ade77b43923b38237db569b016ba25.1920.1080.jpeg)",
+            "url(https://images5.alphacoders.com/403/403408.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <Typography
+          variant="h1"
           sx={{
-            fontSize: "64px",
-            color: "#2b68db",
+            fontSize: "80px",
+            color: "white",
             textAlign: "center",
-            fontWeight: "bold",
-            textShadow:
-              "1px 0 1px white, 0 1px 1px white,-1px 0 1px white,0 -1px 1px white;",
+            fontWeight: "700",
+            mb: "100px",
+            fontFamily: "Montserrat",
+            opacity: "0.8",
           }}
         >
           Main Characters
         </Typography>
-        <Card
+        <Box
           sx={{
-            maxWidth: 345,
-            border: "solid black 5px",
-            borderRadius: "20px",
-            overflow: "hidden",
-            backgroundColor: "rgb(0,0,0,0)",
+            width: "100%",
+            minHeight: "100vh",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-evenly",
           }}
         >
-          <CardMedia
-            sx={{ height: 140 }}
-            image="https://pyxis.nymag.com/v1/imgs/7ad/fa0/4eb41a9408fb016d6eed17b1ffd1c4d515-07-jon-snow.rsquare.w330.jpg"
-            title="green iguana"
-          />
-          <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
-            <Typography gutterBottom variant="h5" component="div">
-              John Snow
-            </Typography>
-            <Typography variant="body2" color="black">
-              Джон Сно́у — один из ключевых персонажей, незаконнорождённый
-              (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
-              единокровный брат законных детей лорда Старка — Робба, Сансы,
-              Брана, Арьи и Рикона.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+          <Card
+            sx={{
+              maxWidth: 345,
+              border: "solid black 5px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              backgroundColor: "rgb(0,0,0,0)",
+            }}
+          >
+            <CardMedia
+              sx={{ height: 140 }}
+              image="https://images6.alphacoders.com/380/380456.jpg"
+              title="green iguana"
+            />
+            <CardContent sx={{ backgroundColor: "rgb(255, 255, 255, 0.5)" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                John Snow
+              </Typography>
+              <Typography variant="body2" color="black">
+                Джон Сно́у — один из ключевых персонажей, незаконнорождённый
+                (Бастард) сын лорда Эддарда Старка и неизвестной женщины,
+                единокровный брат законных детей лорда Старка — Робба, Сансы,
+                Брана, Арьи и Рикона.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </Box>
       </Box>
     </>
   );
