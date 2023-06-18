@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
 
 const Shop = () => {
-  const products = useSelector((state) => state.products.products);
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
