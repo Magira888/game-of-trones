@@ -35,56 +35,48 @@
       "price": "asd",
       "image": "https://static.rustore.ru/apk/256380351/content/ICON/d4db7e5a-8a8d-46ad-9509-1cefcf2e40ab.jpg",
       "type": "asd",
-      "id": 1
+      "id": 1,
+      "amount": 1
     },
     {
       "title": "qwer1234",
       "price": "qwer",
       "image": "qwer",
       "type": "qwerdd",
-      "id": 2
+      "id": 2,
+      "amount": 1
     },
     {
       "title": "олдоол",
       "price": "лдодлолдолдо",
       "image": "длодлодлод",
       "type": "лдлодлодл",
-      "id": 5
+      "id": 5,
+      "amount": 1
     },
     {
       "title": "Mira",
       "price": "123456789",
       "image": "https://fikiwiki.com/uploads/posts/2022-02/1644984017_1-fikiwiki-com-p-kartinki-zhivotnikh-na-avu-1.jpg",
       "type": "key",
-      "id": 8
+      "id": 8,
+      "amount": 1
     },
     {
       "title": "lkjj",
       "price": "lkjlkjlkjlkjlk",
       "image": "jlkjlkjlkj",
       "type": "lkjlkjlk",
-      "id": 9
+      "id": 9,
+      "amount": 1
     },
     {
       "title": "",
       "price": "",
       "image": "",
       "type": "",
-      "id": 10
-    },
-    {
-      "title": "jjjoij",
-      "price": "jlkjlkjklj",
-      "image": "kljkljkljlkj",
-      "type": "sdsds",
-      "id": 11
-    },
-    {
-      "title": "11111111111111",
-      "price": "1111111111111",
-      "image": "111111111111",
-      "type": "111111111",
-      "id": 12
+      "id": 10,
+      "amount": 1
     }
   ],
   "comments": []

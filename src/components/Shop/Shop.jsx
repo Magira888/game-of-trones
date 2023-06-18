@@ -18,6 +18,15 @@ const Shop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [cart, setCart] = useState([]);
+
+  const addProdToCard = (elem) => {
+    // console.log(elem);
+    cart.push(elem);
+
+    console.log(cart);
+  };
+
   useEffect(() => {
     dispatch(read());
   }, []);
@@ -25,6 +34,9 @@ const Shop = () => {
   return (
     <>
       <Box sx={{ width: "100%" }}>
+        <Box>
+          <Cart />
+        </Box>
         <Box sx={{ display: "flex", flexWrap: "wrap" }}>
           {products.map((elem, index) => (
             <Card sx={{ maxWidth: 345 }} key={index}>
@@ -49,6 +61,9 @@ const Shop = () => {
                       }}
                     >
                       ✏️
+                    </Button>
+                    <Button onClick={() => addProdToCard(elem)}>
+                      AddToCard
                     </Button>
                     <Button onClick={() => dispatch(deleter(elem.id))}>
                       🗑️

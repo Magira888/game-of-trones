@@ -9,37 +9,40 @@ import AccountPage from "../pages/AccountPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import AdminPage from "../pages/AdminPage";
 import Edit from "../components/Edit/Edit";
-import Cart from "../components/Cart/Cart";
-import { useSelector } from "react-redux";
 import { ADMIN } from "../helpers/consts";
+import { useSelector } from "react-redux";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
-  const PUBLIC_ROUTES = [
-    { link: "/", element: <HomePage /> },
-    { link: "/characters", element: <CharactersPage /> },
-    { link: "/shop", element: <ShopPage /> },
-    { link: "/register", element: <RegisterPage /> },
-    { link: "/login", element: <LoginPage /> },
-    { link: "/account", element: <AccountPage /> },
-    { link: "/admin", element: <AdminPage /> },
-    { link: "/edit/:id", element: <Edit /> },
-    { link: "/*", element: <NotFoundPage /> },
-  ];
 
-  const PRIVATE_ROUTES = [{ link: "/admin", element: <AdminPage /> }];
+  const PUBLIC_ROUTES = [
+    { link: "/", element: <HomePage />, id: 1 },
+    { link: "/characters", element: <CharactersPage />, id: 2 },
+    { link: "/shop", element: <ShopPage />, id: 3 },
+    { link: "/register", element: <RegisterPage />, id: 4 },
+    { link: "/login", element: <LoginPage />, id: 5 },
+    { link: "/account", element: <AccountPage />, id: 6 },
+    { link: "/edit/:id", element: <Edit />, id: 7 },
+
+    { link: "/*", element: <NotFoundPage />, id: 8 },
+  ];
+  const PRIVATE_ROUTES = [{ link: "/admin", element: <AdminPage />, id: 1 }];
+
   return (
     <Routes>
       {PUBLIC_ROUTES.map((item, index) => (
         <Route path={item.link} element={item.element} key={index} />
       ))}
-      {PRIVATE_ROUTES.map((elem, index) => (
-        <Route
-          path={elem.link}
-          key={index}
-          element={user === ADMIN ? elem.element : <Navigate replace to="*" />}
-        />
-      ))}
+      {user &&
+        PRIVATE_ROUTES.map((item) => (
+          <Route
+            path={item.link}
+            key={item.id}
+            element={
+              user === ADMIN ? item.element : <Navigate replace to="*" />
+            }
+          />
+        ))}
     </Routes>
   );
 };

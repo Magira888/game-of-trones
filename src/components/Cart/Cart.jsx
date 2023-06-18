@@ -14,7 +14,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-  width: "25%",
+  width: "50%",
   height: "400px",
   backgroundColor: "rgb(0,0,0,0.7)",
   display: "flex",
@@ -35,8 +35,8 @@ const Cart = () => {
   const { products } = useSelector((state) => state.products);
   return (
     <>
-      <Button onClick={handleOpen}>Add to cart</Button>
-      {products.map((elem) => (
+      <Box>
+        <Button onClick={handleOpen}>Open modal</Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -44,43 +44,77 @@ const Cart = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
+            {/* ============ начало  одного товара ============ */}
+
             <Divider
               variant="white"
               sx={{ width: "90%", border: "solid 2px white" }}
             />
-            <Typography>{elem.title}</Typography>
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+                width: "90%",
+                justifyContent: "space-around",
               }}
             >
-              <Typography>Price: $ 55</Typography>
-              <Typography>Type: toys</Typography>
-              <img style={{ height: 140 }} src={elem.image} alt="" />
-              <Box sx={{ display: "flex" }}>
-                <Button
-                  size="small"
-                  disableElevation
-                  variant="contained"
-                  onClick={() => setCounter(counter - 1)}
-                >
-                  -
-                </Button>
-                <Box sx={{ width: "30px", textAlign: "center" }}>{counter}</Box>
-                <Button
-                  size="small"
-                  disableElevation
-                  variant="contained"
-                  onClick={() => setCounter(counter + 1)}
-                >
-                  +
-                </Button>
+              <Box>
+                <img
+                  style={{ height: 140 }}
+                  src={
+                    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+                  }
+                  alt=""
+                />
               </Box>
-              <Typography>Sub price: $ 55</Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <Typography>Item title</Typography>
+                <Typography>Type: toys</Typography>
+                <Typography>Price: $ 55</Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
+                  <Button size="small" disableElevation variant="contained">
+                    -
+                  </Button>
+                  <Box
+                    component="input"
+                    sx={{ width: "30px", textAlign: "center" }}
+                  ></Box>
+                  <Button size="small" disableElevation variant="contained">
+                    +
+                  </Button>
+                </Box>
+                <Button>Delete</Button>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <Typography>Sub price:</Typography>
+                <Typography>$ 55</Typography>
+              </Box>
             </Box>
+
+            {/* ============ конец  одного товара ============ */}
+
             <Divider
               variant="white"
               sx={{ width: "90%", border: "solid 2px white" }}
@@ -90,7 +124,7 @@ const Cart = () => {
             </Typography>
           </Box>
         </Modal>
-      ))}
+      </Box>
     </>
   );
 };
