@@ -1,6 +1,5 @@
 import React from "react";
 import photo from "./pngegg.png";
-import dragon from "./pngegg (1).png";
 import { Box } from "@mui/material";
 import "./home.js";
 import "./home.css";
