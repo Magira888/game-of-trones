@@ -14,12 +14,20 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import "./ShopFillter";
 import ShopFillter from "./ShopFillter";
+import { ADMIN } from "../../helpers/consts";
+import { authListener } from "../../auth/auth-action";
 
 const Shop = () => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selectedProductIds, setSelectedProductIds] = useState([]);
+
+  const { user } = useSelector((state) => state.auth);
+
+  React.useEffect(() => {
+    dispatch(authListener());
+  }, []);
 
   const handleAddToCart = (product) => {
     const updatedProductIds = [...selectedProductIds, product.id];
@@ -60,9 +68,16 @@ const Shop = () => {
           products={products}
           onRemoveFromCart={handleRemoveFromCart}
         />
-        <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Box
+          sx={{
+            display: "flex",
+            width: "95%",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {products.map((elem, index) => (
-            <Card sx={{ maxWidth: 345 }} key={index}>
+            <Card sx={{ width: "200px", margin: "10px" }} key={index}>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -77,25 +92,32 @@ const Shop = () => {
                   <Typography variant="body2" color="text.secondary">
                     {elem.price}
                   </Typography>
+                  {/* ================== */}
                   <Box>
-                    <Button
-                      onClick={() => {
-                        navigate(`/edit/${elem.id}`);
-                      }}
-                    >
-                      ✏️
-                    </Button>
+                    {user === ADMIN && (
+                      <Button
+                        onClick={() => {
+                          navigate(`/edit/${elem.id}`);
+                        }}
+                      >
+                        ✏️
+                      </Button>
+                    )}
                     <Button onClick={() => handleAddToCart(elem)}>
-                      <Cart
+                      {/* <Cart
                         selectedProductIds={selectedProductIds}
                         products={products}
                         onRemoveFromCart={handleRemoveFromCart}
-                      />
+                      /> */}
+                      ADD
                     </Button>
-                    <Button onClick={() => dispatch(deleter(elem.id))}>
-                      🗑️
-                    </Button>
+                    {user === ADMIN && (
+                      <Button onClick={() => dispatch(deleter(elem.id))}>
+                        🗑️
+                      </Button>
+                    )}
                   </Box>
+                  {/* ================== */}
                 </CardContent>
               </CardActionArea>
             </Card>

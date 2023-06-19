@@ -105,6 +105,7 @@
       "price": "15",
       "image": "https://static.rustore.ru/apk/256380351/content/ICON/d4db7e5a-8a8d-46ad-9509-1cefcf2e40ab.jpg",
       "type": "other",
+      "counts": 1,
       "id": 1
     },
     {
@@ -112,6 +113,7 @@
       "price": "12",
       "image": "https://basket-02.wb.ru/vol167/part16735/16735001/images/c516x688/1.jpg",
       "type": "брелок",
+      "counts": 1,
       "id": 2
     },
     {
@@ -119,6 +121,7 @@
       "price": "11",
       "image": "https://basket-02.wb.ru/vol167/part16735/16735002/images/c516x688/1.jpg",
       "type": "брелок",
+      "counts": 1,
       "id": 5
     },
     {
@@ -126,6 +129,7 @@
       "price": "50",
       "image": "https://fikiwiki.com/uploads/posts/2022-02/1644984017_1-fikiwiki-com-p-kartinki-zhivotnikh-na-avu-1.jpg",
       "type": "toys",
+      "counts": 1,
       "id": 8
     },
     {
@@ -133,6 +137,7 @@
       "price": "10",
       "image": "https://basket-02.wb.ru/vol166/part16653/16653861/images/c516x688/1.jpg",
       "type": "брелок",
+      "counts": 1,
       "id": 9
     },
     {
@@ -140,6 +145,7 @@
       "price": "5656565",
       "image": "65656565",
       "type": "566565",
+      "counts": 1,
       "id": 10
     },
     {
@@ -147,6 +153,7 @@
       "price": "l;kl;k",
       "image": ";lk;lk",
       "type": ";lkl",
+      "counts": 1,
       "id": 11
     },
     {
@@ -154,6 +161,7 @@
       "price": ";k;lk;lkl;kl;",
       "image": "k;lkl;klk",
       "type": "lklkl",
+      "counts": 1,
       "id": 12
     },
     {
@@ -161,6 +169,7 @@
       "price": ";l;l;",
       "image": "l;l;l",
       "type": ";l;",
+      "counts": 1,
       "id": 13
     },
     {
@@ -168,6 +177,7 @@
       "price": "l;l;l;l",
       "image": ";l;l;l;l",
       "type": ";l;l",
+      "counts": 1,
       "id": 14
     },
     {
@@ -175,6 +185,7 @@
       "price": "SD",
       "image": "hkjjkhkjh",
       "type": "kjhkjhkjh",
+      "counts": 1,
       "id": 15
     },
     {
@@ -182,6 +193,7 @@
       "price": "jlkjlkj",
       "image": "kljlkjlkjlkj",
       "type": "kljlkjklj",
+      "counts": 1,
       "id": 16
     }
   ],
