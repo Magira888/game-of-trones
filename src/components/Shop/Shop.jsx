@@ -12,10 +12,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import ShopFillter from "./ShopFillter";
+import "./ShopFillter";
 
 const Shop = () => {
-  const { products } = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selectedProductIds, setSelectedProductIds] = useState([]);
@@ -52,7 +52,6 @@ const Shop = () => {
 
   return (
     <>
-      <ShopFillter />
       <Box sx={{ width: "100%" }}>
         <Cart
           selectedProductIds={selectedProductIds}
@@ -95,9 +94,6 @@ const Shop = () => {
                       🗑️
                     </Button>
                   </Box>
-                  <Button onClick={() => addProdToCard(elem)}>
-                    <Cart cart={cart} />
-                  </Button>
                 </CardContent>
               </CardActionArea>
             </Card>

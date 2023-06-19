@@ -4,7 +4,7 @@ import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 
 const filter = createFilterOptions();
 
-export default function FreeSoloCreateOption() {
+export function ShopFillter() {
   const [value, setValue] = React.useState(null);
 
   return (
@@ -196,3 +196,5 @@ const top100Films = [
   { title: "3 Idiots", year: 2009 },
   { title: "Monty Python and the Holy Grail", year: 1975 },
 ];
+
+export default ShopFillter;
