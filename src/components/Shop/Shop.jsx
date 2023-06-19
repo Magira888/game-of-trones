@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
+import "./ShopFillter";
 
 const Shop = () => {
   const products = useSelector((state) => state.products.products);

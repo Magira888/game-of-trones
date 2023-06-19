@@ -5,12 +5,12 @@ import CharactersPage from "../pages/CharactersPage.jsx";
 import ShopPage from "../pages/ShopPage";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
-import AccountPage from "../pages/AccountPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import AdminPage from "../pages/AdminPage";
 import Edit from "../components/Edit/Edit";
 import { ADMIN } from "../helpers/consts";
 import { useSelector } from "react-redux";
+import CommentsPage from "../pages/CommentsPage";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -20,9 +20,9 @@ const MainRoutes = () => {
     { link: "/shop", element: <ShopPage />, id: 3 },
     { link: "/register", element: <RegisterPage />, id: 4 },
     { link: "/login", element: <LoginPage />, id: 5 },
-    { link: "/account", element: <AccountPage />, id: 6 },
     { link: "/edit/:id", element: <Edit />, id: 7 },
-    { link: "*", element: <NotFoundPage />, id: 8 },
+    { link: "/comments/:id", element: <CommentsPage />, id: 8 },
+    { link: "/*", element: <NotFoundPage />, id: 9 },
   ];
 
   const PRIVATE_ROUTES = [{ link: "/admin", element: <AdminPage />, id: 1 }];
