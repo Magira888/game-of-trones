@@ -1,6 +1,6 @@
 # Fan Page - Game of trones
 
-![GOT](logos.png)
+![GOT](https://flxt.tmsimg.com/assets/p8553063_b_v13_ax.jpg)
 
 ## Available Scripts
 
