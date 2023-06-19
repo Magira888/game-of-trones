@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
-
   const PUBLIC_ROUTES = [
     { link: "/", element: <HomePage />, id: 1 },
     { link: "/characters", element: <CharactersPage />, id: 2 },
@@ -23,15 +22,15 @@ const MainRoutes = () => {
     { link: "/login", element: <LoginPage />, id: 5 },
     { link: "/account", element: <AccountPage />, id: 6 },
     { link: "/edit/:id", element: <Edit />, id: 7 },
-
-    { link: "/*", element: <NotFoundPage />, id: 8 },
+    { link: "*", element: <NotFoundPage />, id: 8 },
   ];
+
   const PRIVATE_ROUTES = [{ link: "/admin", element: <AdminPage />, id: 1 }];
 
   return (
     <Routes>
-      {PUBLIC_ROUTES.map((item, index) => (
-        <Route path={item.link} element={item.element} key={index} />
+      {PUBLIC_ROUTES.map((item) => (
+        <Route path={item.link} element={item.element} key={item.id} />
       ))}
       {user &&
         PRIVATE_ROUTES.map((item) => (
