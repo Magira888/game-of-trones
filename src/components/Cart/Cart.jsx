@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Divider } from "@mui/material";
 import { Image } from "@mui/icons-material";
+import { calcSubPrice } from "../../helpers/functions";
 
 const Cart = ({ selectedProductIds, products, onRemoveFromCart }) => {
   const [open, setOpen] = useState(false);
@@ -23,15 +24,32 @@ const Cart = ({ selectedProductIds, products, onRemoveFromCart }) => {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     selectedProducts.forEach((product) => {
-      totalPrice += product.price * 1;
+      totalPrice += product.price * counter;
     });
     return totalPrice;
   };
 
+  // ! ======================================================
+  const changeProductCount = (count, id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    cart.products = cart.products.map((product) => {
+      if (product.item.id === id) {
+        product.count = count;
+        product.subPrice = calcSubPrice(product);
+      }
+      console.log(count);
+      return product;
+    });
+  };
+  changeProductCount();
+
+  // ! ======================================================
+
   return (
     <>
       <Box>
-        <Button onClick={handleOpen}>Open modal</Button>
+        <Button onClick={handleOpen}>ADD TO CART</Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -73,81 +91,86 @@ const Cart = ({ selectedProductIds, products, onRemoveFromCart }) => {
                 width: "100%",
               }}
             >
-              {selectedProducts.map((product) => (
-                <Box
-                  key={product.id}
-                  sx={{
-                    display: "flex",
-                    width: "90%",
-                    justifyContent: "space-around",
-                    position: "relative",
-                  }}
-                >
-                  <Box>
-                    <img
-                      style={{ height: 140, width: 140 }}
-                      src={product.image}
-                      alt=""
-                    />
-                  </Box>
+              {selectedProducts.map((product) => {
+                console.log(product.id);
+                return (
                   <Box
+                    key={product.id}
                     sx={{
                       display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      alignItems: "center",
+                      width: "90%",
+                      justifyContent: "space-around",
+                      position: "relative",
                     }}
                   >
-                    <Typography>{product.title}</Typography>
-                    <Typography>{product.type}</Typography>
-                    <Typography>Price: $ {product.price}</Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box sx={{ display: "flex" }}>
-                      <Button
-                        size="small"
-                        disableElevation
-                        variant="contained"
-                        onClick={() => setCounter(counter - 1)}
-                      >
-                        -
-                      </Button>
-                      <Box sx={{ width: "30px", textAlign: "center" }}>
-                        {counter}
+                    <Box>
+                      <img
+                        style={{ height: 140, width: 140 }}
+                        src={product.image}
+                        alt=""
+                      />
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography>{product.title}</Typography>
+                      <Typography>{product.type}</Typography>
+                      <Typography>Price: $ {product.price}</Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Box sx={{ display: "flex" }}>
+                        <Button
+                          size="small"
+                          disableElevation
+                          variant="contained"
+                          onClick={() => setCounter(counter - 1)}
+                        >
+                          -
+                        </Button>
+                        {/* ========= */}
+                        <Box sx={{ width: "30px", textAlign: "center" }}>
+                          {counter}
+                        </Box>
+                        {/* ========= */}
+                        <Button
+                          size="small"
+                          disableElevation
+                          variant="contained"
+                          onClick={() => setCounter(counter + 1)}
+                        >
+                          +
+                        </Button>
                       </Box>
-                      <Button
-                        size="small"
-                        disableElevation
-                        variant="contained"
-                        onClick={() => setCounter(counter + 1)}
-                      >
-                        +
+                      <Button onClick={() => handleRemove(product.id)}>
+                        Delete
                       </Button>
                     </Box>
-                    <Button onClick={() => handleRemove(product.id)}>
-                      Delete
-                    </Button>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography>Sub price:</Typography>
+                      <Typography>$ {product.price * counter}</Typography>
+                    </Box>
                   </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography>Sub price:</Typography>
-                    <Typography>$ {product.price * 1}</Typography>
-                  </Box>
-                </Box>
-              ))}
+                );
+              })}
             </Box>
             {/* ============ конец  одного товара ============ */}
             <Divider
