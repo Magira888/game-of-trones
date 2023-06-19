@@ -13,6 +13,7 @@ import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import "./ShopFillter";
+import ShopFillter from "./ShopFillter";
 
 const Shop = () => {
   const products = useSelector((state) => state.products.products);
@@ -52,6 +53,7 @@ const Shop = () => {
 
   return (
     <>
+      <ShopFillter />
       <Box sx={{ width: "100%" }}>
         <Cart
           selectedProductIds={selectedProductIds}
