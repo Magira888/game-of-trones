@@ -26,7 +26,7 @@ const Login = () => {
       navigate,
     };
     dispatch(handleLogin(obj));
-    console.log(obj);
+    // console.log(obj);
   };
 
   return (
