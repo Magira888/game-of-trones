@@ -27,104 +27,101 @@ const style = {
   borderRadius: "40px",
 };
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [counter, setCounter] = useState(1);
-  const { products } = useSelector((state) => state.products);
   return (
     <>
-      <Box>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            {/* ============ начало  одного товара ============ */}
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          {/* ============ начало  одного товара ============ */}
 
-            <Divider
-              variant="white"
-              sx={{ width: "90%", border: "solid 2px white" }}
-            />
+          <Divider
+            variant="white"
+            sx={{ width: "90%", border: "solid 2px white" }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              width: "90%",
+              justifyContent: "space-around",
+            }}
+          >
+            <Box>
+              <img
+                style={{ height: 140 }}
+                src={
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+                }
+                alt=""
+              />
+            </Box>
             <Box
               sx={{
                 display: "flex",
-                width: "90%",
-                justifyContent: "space-around",
+                flexDirection: "column",
+                width: "100%",
+                alignItems: "center",
               }}
             >
-              <Box>
-                <img
-                  style={{ height: 140 }}
-                  src={
-                    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-                  }
-                  alt=""
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
-                <Typography>Item title</Typography>
-                <Typography>Type: toys</Typography>
-                <Typography>Price: $ 55</Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
-                <Box sx={{ display: "flex" }}>
-                  <Button size="small" disableElevation variant="contained">
-                    -
-                  </Button>
-                  <Box
-                    component="input"
-                    sx={{ width: "30px", textAlign: "center" }}
-                  ></Box>
-                  <Button size="small" disableElevation variant="contained">
-                    +
-                  </Button>
-                </Box>
-                <Button>Delete</Button>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
-                <Typography>Sub price:</Typography>
-                <Typography>$ 55</Typography>
-              </Box>
+              <Typography>rpekmg</Typography>
+              <Typography>Type: toys</Typography>
+              <Typography>Price: $ 55</Typography>
             </Box>
-
-            {/* ============ конец  одного товара ============ */}
-
-            <Divider
-              variant="white"
-              sx={{ width: "90%", border: "solid 2px white" }}
-            />
-            <Typography sx={{ border: "solid 2px blue", boxShadow: 24 }}>
-              TOTAL PRICE: $ 55
-            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
+              <Box sx={{ display: "flex" }}>
+                <Button size="small" disableElevation variant="contained">
+                  -
+                </Button>
+                <Box
+                  component="input"
+                  sx={{ width: "30px", textAlign: "center" }}
+                ></Box>
+                <Button size="small" disableElevation variant="contained">
+                  +
+                </Button>
+              </Box>
+              <Button>Delete</Button>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
+              <Typography>Sub price:</Typography>
+              <Typography>$ 55</Typography>
+            </Box>
           </Box>
-        </Modal>
-      </Box>
+
+          {/* ============ конец  одного товара ============ */}
+
+          <Divider
+            variant="white"
+            sx={{ width: "90%", border: "solid 2px white" }}
+          />
+          <Typography sx={{ border: "solid 2px blue", boxShadow: 24 }}>
+            TOTAL PRICE: $ 55
+          </Typography>
+        </Box>
+      </Modal>
     </>
   );
 };

@@ -7,11 +7,12 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
+import ShopFillter from "./ShopFillter";
 
 const Shop = () => {
   const { products } = useSelector((state) => state.products);
@@ -21,9 +22,7 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
 
   const addProdToCard = (elem) => {
-    // console.log(elem);
-    cart.push(elem);
-
+    setCart(elem);
     console.log(cart);
   };
 
@@ -33,10 +32,8 @@ const Shop = () => {
 
   return (
     <>
+      <ShopFillter />
       <Box sx={{ width: "100%" }}>
-        <Box>
-          <Cart />
-        </Box>
         <Box sx={{ display: "flex", flexWrap: "wrap" }}>
           {products.map((elem, index) => (
             <Card sx={{ maxWidth: 345 }} key={index}>
@@ -62,16 +59,14 @@ const Shop = () => {
                     >
                       ✏️
                     </Button>
-                    <Button onClick={() => addProdToCard(elem)}>
-                      AddToCard
-                    </Button>
+
                     <Button onClick={() => dispatch(deleter(elem.id))}>
                       🗑️
                     </Button>
                   </Box>
-                  <Box>
-                    <Cart />
-                  </Box>
+                  <Button onClick={() => addProdToCard(elem)}>
+                    <Cart cart={cart} />
+                  </Button>
                 </CardContent>
               </CardActionArea>
             </Card>

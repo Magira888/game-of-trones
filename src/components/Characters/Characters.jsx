@@ -4,16 +4,17 @@ import Button from "@mui/material/Button";
 import "./Characters.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getDatas } from "../../crud/crudAction";
+import { useNavigate } from "react-router-dom";
 
 const Characters = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getDatas());
   }, []);
 
   const { characters } = useSelector((state) => state.products);
 
-  console.log(characters);
   return (
     <>
       <Box
@@ -109,8 +110,9 @@ const Characters = () => {
                   opacity: "0",
                   transition: "0.3s ease-out",
                 }}
+                onClick={() => navigate(`/comments/${elem.id}`)}
               >
-                More info
+                Comments
               </Button>
             </Box>
           ))}
