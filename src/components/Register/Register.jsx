@@ -68,6 +68,7 @@ const Register = () => {
           <Typography variant="h3" sx={{ mb: "30px", fontWeight: "700" }}>
             Register
           </Typography>
+
           <TextField
             label="Email"
             sx={{ color: "white", backgroundColor: "white" }}

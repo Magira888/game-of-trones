@@ -17,15 +17,33 @@ const Shop = () => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [selectedProductIds, setSelectedProductIds] = useState([]);
 
-  const [cart, setCart] = useState([]);
-
-  const addProdToCard = (elem) => {
-    // console.log(elem);
-    cart.push(elem);
-
-    console.log(cart);
+  const handleAddToCart = (product) => {
+    const updatedProductIds = [...selectedProductIds, product.id];
+    setSelectedProductIds(updatedProductIds);
+    localStorage.setItem(
+      "selectedProductIds",
+      JSON.stringify(updatedProductIds)
+    );
   };
+
+  const handleRemoveFromCart = (productId) => {
+    const updatedProductIds = selectedProductIds.filter(
+      (id) => id !== productId
+    );
+    setSelectedProductIds(updatedProductIds);
+    localStorage.setItem(
+      "selectedProductIds",
+      JSON.stringify(updatedProductIds)
+    );
+  };
+
+  useEffect(() => {
+    const storedProductIds =
+      JSON.parse(localStorage.getItem("selectedProductIds")) || [];
+    setSelectedProductIds(storedProductIds);
+  }, []);
 
   useEffect(() => {
     dispatch(read());
@@ -34,9 +52,11 @@ const Shop = () => {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <Box>
-          <Cart />
-        </Box>
+        <Cart
+          selectedProductIds={selectedProductIds}
+          products={products}
+          onRemoveFromCart={handleRemoveFromCart}
+        />
         <Box sx={{ display: "flex", flexWrap: "wrap" }}>
           {products.map((elem, index) => (
             <Card sx={{ maxWidth: 345 }} key={index}>
@@ -62,8 +82,12 @@ const Shop = () => {
                     >
                       ✏️
                     </Button>
-                    <Button onClick={() => addProdToCard(elem)}>
-                      AddToCard
+                    <Button onClick={() => handleAddToCart(elem)}>
+                      <Cart
+                        selectedProductIds={selectedProductIds}
+                        products={products}
+                        onRemoveFromCart={handleRemoveFromCart}
+                      />
                     </Button>
                     <Button onClick={() => dispatch(deleter(elem.id))}>
                       🗑️
