@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Fan Page - Game of trones
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GOT](logos.png)
 
 ## Available Scripts
 
