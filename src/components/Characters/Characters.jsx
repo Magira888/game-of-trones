@@ -1,5 +1,5 @@
-import { Box, CardMedia, Divider, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import { Box, CardMedia, Divider, TextField, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./Characters.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,8 +13,12 @@ const Characters = () => {
     dispatch(getDatas());
   }, []);
 
+  const [search, setSearch] = useState("");
   const { characters } = useSelector((state) => state.products);
 
+  const filteredCharacters = characters.filter((elem) => {
+    return elem.name.toLowerCase().includes(search.toLowerCase());
+  });
   return (
     <>
       <Box
@@ -40,7 +44,17 @@ const Characters = () => {
         >
           Main Characters
         </Typography>
-
+        <TextField
+          label="поиск актеров 🔍"
+          sx={{
+            color: "white",
+            backgroundColor: "white",
+            mb: "80px",
+            opacity: "0.8",
+          }}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <Box
           sx={{
             width: "100%",
@@ -51,7 +65,8 @@ const Characters = () => {
           }}
         >
           {/* ============= Карточки ============== */}
-          {characters.map((elem, index) => (
+
+          {filteredCharacters.map((elem, index) => (
             <Box
               className="card"
               sx={{
