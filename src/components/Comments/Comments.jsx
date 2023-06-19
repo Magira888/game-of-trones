@@ -23,6 +23,7 @@ const Comments = () => {
     let data = JSON.parse(localStorage.getItem("comments"));
     data.push(obj);
     localStorage.setItem("comments", JSON.stringify(data));
+    dispatch(getComm(data));
   }
 
   return (
