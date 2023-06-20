@@ -68,6 +68,7 @@ const Shop = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",
+          marginTop: "65px",
         }}
       >
         <Cart

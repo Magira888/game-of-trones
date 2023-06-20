@@ -84,7 +84,7 @@ function Navbar() {
           justifyContent: "space-evenly",
         }}
       >
-        <AppBar position="static" sx={{ backgroundColor: "black" }}>
+        <AppBar position="fixed" sx={{ backgroundColor: "black" }}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <img
