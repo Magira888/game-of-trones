@@ -41,6 +41,7 @@ const Admin = () => {
           height: "100vh",
           backgroundImage:
             "url(https://images7.alphacoders.com/399/399339.jpg)",
+          marginTop: "65px",
         }}
       >
         <Box
@@ -61,7 +62,12 @@ const Admin = () => {
         >
           <Typography
             variant="h3"
-            sx={{ mb: "50px", fontWeight: "700", fontFamily: "Montserrat" }}
+            sx={{
+              mb: "50px",
+              fontWeight: "700",
+              fontFamily: "Montserrat",
+              textAlign: "center",
+            }}
           >
             Add your product
           </Typography>
