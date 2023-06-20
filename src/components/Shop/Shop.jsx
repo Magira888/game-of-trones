@@ -63,10 +63,11 @@ const Shop = () => {
         sx={{
           width: "100%",
           backgroundImage:
-            "url(https://images5.alphacoders.com/391/391646.jpg)",
+            "url(https://images3.alphacoders.com/201/201905.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          height: "100vh",
         }}
       >
         <Cart
