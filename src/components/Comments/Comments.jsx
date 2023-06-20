@@ -28,7 +28,7 @@ const Comments = () => {
 
   return (
     <>
-      <Box sx={{ height: "100%" }}>
+      <Box sx={{ height: "100%", marginTop: "65px" }}>
         <Box>
           <Box
             className="card"

@@ -36,7 +36,7 @@ const Register = () => {
   };
 
   return (
-    <Box width={"100%"}>
+    <Box width={"100%"} sx={{ marginTop: "65px" }}>
       <Box
         sx={{
           display: "flex",

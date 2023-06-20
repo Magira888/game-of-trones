@@ -28,6 +28,7 @@ const Characters = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          marginTop: "65px",
         }}
       >
         <Typography

@@ -67,6 +67,7 @@ const Shop = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          marginTop: "65px",
         }}
       >
         <Cart

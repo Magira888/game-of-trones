@@ -15,6 +15,7 @@ const Home = () => {
         width: "100%",
         backgroundImage: "url(https://images5.alphacoders.com/314/314903.jpg)",
         height: "120vh",
+        marginTop: "65px",
       }}
     >
       <img src={photo} alt="error" style={{ marginBottom: "200px" }} />
