@@ -40,6 +40,9 @@ const Characters = () => {
             mb: "100px",
             fontFamily: "Montserrat",
             opacity: "0.8",
+            lg: {
+              fontSize: "50px",
+            },
           }}
         >
           Main Characters
