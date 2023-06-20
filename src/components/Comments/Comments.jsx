@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, CardMedia, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComm } from "../../comments/commentsSlice";
@@ -28,15 +28,102 @@ const Comments = () => {
 
   return (
     <>
-      <Box>
-        <TextField
-          label="Добавьте комментарий"
-          onChange={(e) => setComm(e.target.value)}
-        />
-        <Button onClick={create}>Опубликовать</Button>
-        {comments.map((elem) => (
-          <h1>{elem}</h1>
-        ))}
+      <Box sx={{ height: "100%" }}>
+        <Box>
+          <Box
+            className="card"
+            sx={{
+              width: "100%",
+              height: "400px",
+              borderRadius: "20px",
+              background: "rgb(0,0,0,0.7)",
+              position: "relative",
+              padding: "1.8rem",
+              border: "4px solid gray",
+              transition: "0.5s ease-out",
+              overflow: "visible",
+            }}
+            // key={index}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                with: "100%",
+                justifyContent: "space-around",
+              }}
+            >
+              <Box sx={{ width: "20%" }}>
+                <CardMedia
+                  sx={{ height: "100%", width: "100%" }}
+                  image="https://images6.alphacoders.com/380/380456.jpg"
+                  title="John Snow"
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: "75%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box>
+                  <Box className="card-details">
+                    <Typography
+                      sx={{
+                        fontSize: "2.5em",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "white",
+                      }}
+                    >
+                      John Snow
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "2.5em",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "white",
+                      }}
+                    >
+                      Winterfell
+                    </Typography>
+                  </Box>
+                </Box>
+                <Box>
+                  <Typography sx={{ fontSize: "1.2em", color: "white" }}>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aspernatur voluptatem tenetur sunt, pariatur nemo aperiam!
+                    Quibusdam rerum repellendus accusantium sed aliquam a rem
+                    esse unde corrupti minima! Accusantium excepturi amet
+                    tenetur nesciunt, fuga dolores accusamus molestiae laborum
+                    magni error. Perspiciatis placeat accusamus incidunt
+                    cupiditate odio, quidem doloremque, architecto ab, ratione
+                    enim tempore fugit dolorem minima distinctio necessitatibus.
+                    Quo ipsa illo laboriosam, iure et pariatur facere est minus
+                    eveniet, laborum suscipit quas aut quos necessitatibus,
+                    neque adipisci hic alias odit doloribus? Ullam veritatis
+                    rerum debitis quis sunt magni totam. Vel itaque qui
+                    consectetur voluptatem facere iste reiciendis! Veritatis
+                    quidem dolor perspiciatis!
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        {/* ============== */}
+        <Box>
+          <TextField
+            label="Добавьте комментарий"
+            onChange={(e) => setComm(e.target.value)}
+          />
+          <Button onClick={create}>Опубликовать</Button>
+          {comments.map((elem) => (
+            <h1>{elem}</h1>
+          ))}
+        </Box>
       </Box>
     </>
   );

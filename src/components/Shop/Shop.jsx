@@ -12,14 +12,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import "./ShopFillter";
-import ShopFillter from "./ShopFillter";
+import { ADMIN } from "../../helpers/consts";
+import { authListener } from "../../auth/auth-action";
 
 const Shop = () => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selectedProductIds, setSelectedProductIds] = useState([]);
+
+  const { user } = useSelector((state) => state.auth);
+
+  React.useEffect(() => {
+    dispatch(authListener());
+  }, []);
 
   const handleAddToCart = (product) => {
     const updatedProductIds = [...selectedProductIds, product.id];
@@ -53,53 +59,130 @@ const Shop = () => {
 
   return (
     <>
-      <ShopFillter />
-      <Box sx={{ width: "100%" }}>
+      <Box
+        sx={{
+          width: "100%",
+          backgroundImage:
+            "url(https://images5.alphacoders.com/391/391646.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <Cart
           selectedProductIds={selectedProductIds}
           products={products}
           onRemoveFromCart={handleRemoveFromCart}
         />
-        <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Box
+          sx={{
+            display: "flex",
+            width: "95%",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {/* мапание карточек начало */}
           {products.map((elem, index) => (
-            <Card sx={{ maxWidth: 345 }} key={index}>
-              <CardActionArea>
+            <Box>
+              <Box
+                className="card"
+                sx={{
+                  width: "250px",
+                  height: "350px",
+                  borderRadius: "20px",
+                  background: "rgb(0,0,0,0.7)",
+                  position: "relative",
+                  padding: "1.8rem",
+                  border: "4px solid gray",
+                  transition: "0.5s ease-out",
+                  overflow: "visible",
+                  margin: "10px",
+                }}
+                key={index}
+              >
                 <CardMedia
-                  component="img"
-                  height="140"
+                  sx={{ height: "60%" }}
                   image={elem.image}
-                  alt="green iguana"
+                  title="green iguana"
                 />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {elem.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {elem.price}
-                  </Typography>
-                  <Box>
+                <Typography
+                  sx={{
+                    fontSize: "1.1em",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    color: "white",
+                  }}
+                >
+                  {elem.title}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "1.1em",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    color: "white",
+                  }}
+                >
+                  Type: {elem.type}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "1.1em",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    color: "white",
+                  }}
+                >
+                  Price: {elem.price} $
+                </Typography>
+
+                <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                  {user === ADMIN && (
                     <Button
+                      sx={{ border: "solid teal 3px" }}
                       onClick={() => {
                         navigate(`/edit/${elem.id}`);
                       }}
                     >
                       ✏️
                     </Button>
-                    <Button onClick={() => handleAddToCart(elem)}>
-                      <Cart
-                        selectedProductIds={selectedProductIds}
-                        products={products}
-                        onRemoveFromCart={handleRemoveFromCart}
-                      />
-                    </Button>
-                    <Button onClick={() => dispatch(deleter(elem.id))}>
+                  )}
+                  {user === ADMIN && (
+                    <Button
+                      sx={{ border: "solid teal 3px" }}
+                      onClick={() => dispatch(deleter(elem.id))}
+                    >
                       🗑️
                     </Button>
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+                  )}
+                </Box>
+
+                <Button
+                  className="card-button"
+                  sx={{
+                    transform: "translate(-50%, 125%)",
+                    width: "60%",
+                    borderRadius: "1rem",
+                    border: "none",
+                    backgroundColor: "#008bf8",
+                    color: "#fff",
+                    fontSize: "1rem",
+                    padding: ".5rem 1rem",
+                    position: "absolute",
+                    left: "50%",
+                    bottom: "0",
+                    opacity: "0",
+                    transition: "0.3s ease-out",
+                  }}
+                  onClick={() => handleAddToCart(elem)}
+                >
+                  ADD TO CART
+                </Button>
+              </Box>
+            </Box>
           ))}
+          {/* мапание карточек конец */}
         </Box>
       </Box>
     </>
