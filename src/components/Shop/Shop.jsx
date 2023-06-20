@@ -12,8 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleter, read } from "../../crud/crudAction";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import "./ShopFillter";
-import ShopFillter from "./ShopFillter";
 import { ADMIN } from "../../helpers/consts";
 import { authListener } from "../../auth/auth-action";
 
@@ -71,8 +69,6 @@ const Shop = () => {
           backgroundPosition: "center",
         }}
       >
-        <ShopFillter />
-
         <Cart
           selectedProductIds={selectedProductIds}
           products={products}

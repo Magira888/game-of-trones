@@ -85,7 +85,7 @@ const Characters = () => {
               <CardMedia
                 sx={{ height: "80%" }}
                 image={elem.photo}
-                title="green iguana"
+                title={elem.name}
               />
               <Box className="card-details">
                 <Typography

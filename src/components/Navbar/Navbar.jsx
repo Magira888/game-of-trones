@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearInputs } from "../../auth/auth-slice";
 import { authListener, handleLogout } from "../../auth/auth-action";
 import { ADMIN } from "../../helpers/consts";
+// import Cart from "../Cart/Cart";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -22,7 +23,10 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  // const products = useSelector((state) => state.products.products);
+
   const { user } = useSelector((state) => state.auth);
+  const [selectedProductIds, setSelectedProductIds] = React.useState([]);
 
   React.useEffect(() => {
     dispatch(authListener());
@@ -61,10 +65,19 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  // const handleRemoveFromCart = (productId) => {
+  //   const updatedProductIds = selectedProductIds.filter(
+  //     (id) => id !== productId
+  //   );
+  //   setSelectedProductIds(updatedProductIds);
+  //   localStorage.setItem(
+  //     "selectedProductIds",
+  //     JSON.stringify(updatedProductIds)
+  //   );
+  // };
+
   return (
     <>
-      {/* ======================================== */}
-
       <Box
         sx={{
           display: "flex",
@@ -181,6 +194,14 @@ function Navbar() {
                 </>
               )}
               {/* ========================= */}
+
+              {/* <Button sx={{ backgroundColor: "white" }}>
+                <Cart
+                  selectedProductIds={selectedProductIds}
+                  products={products}
+                  onRemoveFromCart={handleRemoveFromCart}
+                />
+              </Button> */}
             </Toolbar>
           </Container>
         </AppBar>
